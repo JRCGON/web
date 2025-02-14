@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feliz San Valentín, Lauren</title>
+    <style>
+        body {
+            background-color: pink;
+            text-align: center;
+            font-family: Arial, sans-serif;
+            overflow: hidden;
+        }
+        h1 {
+            color: red;
+            font-size: 50px;
+        }
+        p {
+            font-size: 30px;
+            color: white;
+        }
+        img {
+            width: 50%;
+            height: auto;
+            margin-top: 20px;
+            border-radius: 15px;
+        }
+        .heart {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: red;
+            transform: rotate(-45deg);
+            animation: float 4s infinite;
+        }
+        .heart::before, .heart::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: red;
+            border-radius: 50%;
+        }
+        .heart::before {
+            top: -10px;
+            left: 0;
+        }
+        .heart::after {
+            left: 10px;
+            top: 0;
+        }
+        @keyframes float {
+            0% { transform: translateY(0) rotate(-45deg); opacity: 1; }
+            50% { transform: translateY(-100px) rotate(-45deg); opacity: 0.5; }
+            100% { transform: translateY(-200px) rotate(-45deg); opacity: 0; }
+        }
+        .sunflower {
+            position: absolute;
+            font-size: 40px;
+            animation: spin 5s linear infinite;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <h1>💖 ¡Feliz San Valentín, Lauren! 💖</h1>
+    <p>❤️ TE AMO ❤️</p>
+    <img src="https://www.zooplus.es/magazine/wp-content/uploads/2023/01/Gatos-bicolores-1.jpeg" alt="fotito de lupin">
+    
+    <script>
+        function createHeart() {
+            const heart = document.createElement('div');
+            heart.classList.add('heart');
+            heart.style.left = Math.random() * window.innerWidth + 'px';
+            heart.style.top = window.innerHeight + 'px';
+            document.body.appendChild(heart);
+            setTimeout(() => heart.remove(), 4000);
+        }
+        setInterval(createHeart, 300);
+        
+        function createSunflower() {
+            const sunflower = document.createElement('div');
+            sunflower.classList.add('sunflower');
+            sunflower.innerText = '🌻';
+            sunflower.style.left = Math.random() * window.innerWidth + 'px';
+            sunflower.style.top = Math.random() * window.innerHeight + 'px';
+            document.body.appendChild(sunflower);
+        }
+        for (let i = 0; i < 5; i++) {
+            createSunflower();
+        }
+    </script>
+</body>
+</html>
